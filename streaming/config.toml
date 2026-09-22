@@ -1,0 +1,42 @@
+[station]
+network = "USA"
+station = "SeisBerry"
+location = "Home"
+latitude = 29.0
+longitude = -95.0
+sample_rate_hz = 750
+channels = 3
+
+[streaming]
+simulate_adc = false
+require_64bit = true
+window_seconds = 60
+miniseed_dir = "data/miniseed"
+helicorder_dir = "data/helicorder"
+seedlink_enabled = false
+seedlink_host = "0.0.0.0"
+seedlink_port = 18000
+trigger_sta_seconds = 5.0
+trigger_lta_seconds = 30.0
+trigger_on_threshold = 5.0
+trigger_off_threshold = 2.5
+
+[logging]
+level = "INFO"
+
+[watchdog]
+enabled = true
+max_sample_gap_seconds = 30.0
+min_free_disk_gb = 2.0
+max_cpu_load = 2.5
+alert_cooldown_seconds = 300.0
+
+[ntp]
+enabled = true
+servers = "0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org"
+
+[notifications]
+aps = [
+  "discord://token@channel",
+  "mailto://user@example.com"
+]

@@ -1,0 +1,16 @@
+[Unit]
+Description=Seisberry live streaming sampler
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/opt/seisberry/app
+Environment=SEISBERRY_CONFIG=/opt/seisberry/app/streaming/config.toml
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/seisberry/venv/bin/python -m streaming
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
